@@ -166,11 +166,21 @@ const hasMinRole = (minRole: AppRole): boolean => {
 /**
  * Check if user has specific permission
  */
+const getEffectivePermissions = (role: AppRole): string[] => {
+  const maxLevel = ROLE_HIERARCHY[role]
+
+  const permissions = Object.entries(ROLE_HIERARCHY)
+    .filter(([, level]) => level <= maxLevel)
+    .flatMap(([roleName]) => ROLE_PERMISSIONS[roleName as AppRole])
+
+  return Array.from(new Set(permissions))
+}
+
 const hasPermission = (permission: string | string[]): boolean => {
   if (!authState.value.user) return false
 
   const permissions = Array.isArray(permission) ? permission : [permission]
-  const userPermissions = ROLE_PERMISSIONS[authState.value.user.role]
+  const userPermissions = getEffectivePermissions(authState.value.user.role)
 
   return permissions.every((perm) => userPermissions.includes(perm))
 }

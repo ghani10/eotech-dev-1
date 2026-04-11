@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { useAuth} from '../composables/useAuth.vue'
+import { useAuth } from '../../inertia/composables/useAuth.ts'
 
 /**
  * Unit Tests for useAuth Composable
@@ -13,8 +13,28 @@ import { useAuth} from '../composables/useAuth.vue'
 
 describe('useAuth Composable', () => {
   beforeEach(() => {
-    // Clear localStorage before each test
-    localStorage.clear()
+    const { authState } = useAuth()
+
+    // Reset auth state before each test
+    authState.value = {
+      user: null,
+      isAuthenticated: false,
+      token: null,
+    }
+
+    if (typeof localStorage !== 'undefined') {
+      if (typeof localStorage.clear === 'function') {
+        localStorage.clear()
+      } else if (typeof localStorage.removeItem === 'function') {
+        Array.from({ length: localStorage.length }).forEach((_, index) => {
+          const key = localStorage.key(index)
+          if (key) {
+            localStorage.removeItem(key)
+          }
+        })
+      }
+    }
+
     vi.clearAllMocks()
   })
 
