@@ -1,7 +1,6 @@
 import Event from "#models/event"
 import db from '@adonisjs/lucid/services/db'
-import { TransactionClientContract } from '@adonisjs/lucid/types/database'
-import { FileUploadService, UploadResult } from './file_upload_service.js'
+import { FileUploadService} from './file_upload_service.js'
 import { CacheService } from './cache_service.js'
 import { MultipartFile } from '@adonisjs/core/bodyparser'
 import { DateTime } from 'luxon'
