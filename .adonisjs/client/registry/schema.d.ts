@@ -103,6 +103,18 @@ export interface Registry {
       errorResponse: unknown
     }
   }
+  'public.events.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/events/:slug'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { slug: ParamValue }
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
   'api.events.index': {
     methods: ["GET","HEAD"]
     pattern: '//api/v1/events'
@@ -122,18 +134,6 @@ export interface Registry {
       body: {}
       paramsTuple: []
       params: {}
-      query: {}
-      response: unknown
-      errorResponse: unknown
-    }
-  }
-  'api.events.showBySlug': {
-    methods: ["GET","HEAD"]
-    pattern: '//api/v1/events/slug/:slug'
-    types: {
-      body: {}
-      paramsTuple: [ParamValue]
-      params: { slug: ParamValue }
       query: {}
       response: unknown
       errorResponse: unknown

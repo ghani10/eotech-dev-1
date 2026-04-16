@@ -67,7 +67,7 @@ export interface PaginatedResponse<T> {
       from: number
       to: number
     }
-    data: T[]
+    data_events: T[]
   }
 }
 
@@ -165,7 +165,7 @@ export class EventService {
             message: "success",
             data: {
               meta: paginatedEvents.getMeta(),
-              data: paginatedEvents.all().map(event => this.toJSON(event))
+              data_events: paginatedEvents.all().map(event => this.toJSON(event))
             }
           }
         } catch (error: any) {
@@ -233,7 +233,6 @@ export class EventService {
     const trx = await db.transaction()
 
     try {
-      const messageId = this.generateMessageId()
       const event_id = randomUUID()
 
       // Handle file upload if banner is provided

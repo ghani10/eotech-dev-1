@@ -54,6 +54,12 @@ const routes = {
     tokens: [{"old":"/events","type":0,"val":"events","end":""}],
     types: placeholder as Registry['public.events.index']['types'],
   },
+  'public.events.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/events/:slug',
+    tokens: [{"old":"/events/:slug","type":0,"val":"events","end":""},{"old":"/events/:slug","type":1,"val":"slug","end":""}],
+    types: placeholder as Registry['public.events.show']['types'],
+  },
   'api.events.index': {
     methods: ["GET","HEAD"],
     pattern: '//api/v1/events',
@@ -65,12 +71,6 @@ const routes = {
     pattern: '//api/v1/events/stats',
     tokens: [{"old":"//api/v1/events/stats","type":0,"val":"","end":""},{"old":"//api/v1/events/stats","type":0,"val":"api","end":""},{"old":"//api/v1/events/stats","type":0,"val":"v1","end":""},{"old":"//api/v1/events/stats","type":0,"val":"events","end":""},{"old":"//api/v1/events/stats","type":0,"val":"stats","end":""}],
     types: placeholder as Registry['api.events.stats']['types'],
-  },
-  'api.events.showBySlug': {
-    methods: ["GET","HEAD"],
-    pattern: '//api/v1/events/slug/:slug',
-    tokens: [{"old":"//api/v1/events/slug/:slug","type":0,"val":"","end":""},{"old":"//api/v1/events/slug/:slug","type":0,"val":"api","end":""},{"old":"//api/v1/events/slug/:slug","type":0,"val":"v1","end":""},{"old":"//api/v1/events/slug/:slug","type":0,"val":"events","end":""},{"old":"//api/v1/events/slug/:slug","type":0,"val":"slug","end":""},{"old":"//api/v1/events/slug/:slug","type":1,"val":"slug","end":""}],
-    types: placeholder as Registry['api.events.showBySlug']['types'],
   },
   'events.store': {
     methods: ["POST"],

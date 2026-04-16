@@ -1,7 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { EventService, CreateEventData, UpdateEventData, PaginationParams } from '#services/event_service'
-import { RateLimitService } from '#services/rate_limit_service'
-import { CacheService } from '#services/cache_service'
 import { randomUUID } from 'node:crypto'
 
 export default class EventsController {
@@ -28,7 +26,7 @@ export default class EventsController {
 
     try {
       const page = request.input('page', 1)
-      const limit = request.input('limit', 10)
+      const limit = request.input('limit', 9)
       const status = request.input('status', 'publish') // default to publish for public safety
       const search = request.input('search', '')
 
@@ -244,6 +242,19 @@ export default class EventsController {
       })
     }
   }
+
+  // EventsController
+async showBySlugView({ params, inertia, response }: HttpContext) {
+  const { slug } = params
+  const event = await this.eventService.getEventBySlug(slug)
+
+  if (!event) {
+    return response.notFound({ message: 'Event not found' })
+  }
+
+  return inertia.render('events/show', { event })
+}
+
 
   /**
    * Update event details or status

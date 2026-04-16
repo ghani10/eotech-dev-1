@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuth } from '~/composables/useAuth'
+import { useAuth } from '../../../composables/useAuth'
 
 /**
  * Event Organizer Admin Dashboard

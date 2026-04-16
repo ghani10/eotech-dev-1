@@ -7,9 +7,4 @@ export default defineConfig({
     vue(),
     inertia({ ssr: { enabled: false } }),
   ],
-
-  server: {
-    host: 'localhost',
-    port: 5173,
-  },
 })

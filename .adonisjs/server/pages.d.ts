@@ -21,8 +21,10 @@ declare module '@adonisjs/inertia/types' {
     'admin/tickets/quota': ExtractProps<(typeof import('../../inertia/pages/admin/tickets/quota.vue'))['default']>
     'auth/login': ExtractProps<(typeof import('../../inertia/pages/auth/login.vue'))['default']>
     'auth/signup': ExtractProps<(typeof import('../../inertia/pages/auth/signup.vue'))['default']>
+    'detail_event/[slug]': ExtractProps<(typeof import('../../inertia/pages/detail_event/[slug].vue'))['default']>
     'errors/not_found': ExtractProps<(typeof import('../../inertia/pages/errors/not_found.vue'))['default']>
     'errors/server_error': ExtractProps<(typeof import('../../inertia/pages/errors/server_error.vue'))['default']>
+    'events/index': ExtractProps<(typeof import('../../inertia/pages/events/index.vue'))['default']>
     'events/show': ExtractProps<(typeof import('../../inertia/pages/events/show.vue'))['default']>
     'home': ExtractProps<(typeof import('../../inertia/pages/home.vue'))['default']>
     'participant/ParticipantDashboard': ExtractProps<(typeof import('../../inertia/pages/participant/ParticipantDashboard.vue'))['default']>

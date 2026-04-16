@@ -43,12 +43,22 @@ router
 
 // ─── Public Event API ─────────────────────────────────────────────────────────
 router.get('/events', [EventsController, 'index']).as('public.events.index')
+// routes.ts
+// router.get('/events/:slug', [EventsController, 'showBySlugView']).as('public.events.show')
+// router.get('/events/slug/:slug', async ({ inertia, params }) => {
+//   return inertia.render('events/show', { slug: params.slug })
+// }).as('public.events.show')
+
+// Uncomment and fix this line
+router.get('/events/:slug', [EventsController, 'showBySlugView']).as('public.events.show')
+
+
 
 // ─── Event API ────────────────────────────────────────────────────────────────
 router.group(() => {
   router.get(`${api}/events`, [EventsController, 'index']).as('api.events.index')
   router.get(`${api}/events/stats`, [EventsController, 'getStats']).as('api.events.stats')
-  router.get(`${api}/events/slug/:slug`, [EventsController, 'showBySlug']).as('api.events.showBySlug')
+  
 }).prefix('')
 
 router

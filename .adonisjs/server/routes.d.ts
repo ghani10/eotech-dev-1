@@ -12,9 +12,9 @@ export type ScannedRoutes = {
     'session.store': { paramsTuple?: []; params?: {} }
     'session.destroy': { paramsTuple?: []; params?: {} }
     'public.events.index': { paramsTuple?: []; params?: {} }
+    'public.events.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'api.events.index': { paramsTuple?: []; params?: {} }
     'api.events.stats': { paramsTuple?: []; params?: {} }
-    'api.events.showBySlug': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'events.store': { paramsTuple?: []; params?: {} }
     'events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'events.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
@@ -34,9 +34,9 @@ export type ScannedRoutes = {
     'new_account.create': { paramsTuple?: []; params?: {} }
     'login': { paramsTuple?: []; params?: {} }
     'public.events.index': { paramsTuple?: []; params?: {} }
+    'public.events.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'api.events.index': { paramsTuple?: []; params?: {} }
     'api.events.stats': { paramsTuple?: []; params?: {} }
-    'api.events.showBySlug': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'admin.dashboard': { paramsTuple?: []; params?: {} }
     'admin.events': { paramsTuple?: []; params?: {} }
@@ -53,9 +53,9 @@ export type ScannedRoutes = {
     'new_account.create': { paramsTuple?: []; params?: {} }
     'login': { paramsTuple?: []; params?: {} }
     'public.events.index': { paramsTuple?: []; params?: {} }
+    'public.events.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'api.events.index': { paramsTuple?: []; params?: {} }
     'api.events.stats': { paramsTuple?: []; params?: {} }
-    'api.events.showBySlug': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'admin.dashboard': { paramsTuple?: []; params?: {} }
     'admin.events': { paramsTuple?: []; params?: {} }

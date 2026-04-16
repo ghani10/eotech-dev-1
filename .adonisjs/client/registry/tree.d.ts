@@ -20,13 +20,13 @@ export interface ApiDefinition {
   public: {
     events: {
       index: typeof routes['public.events.index']
+      show: typeof routes['public.events.show']
     }
   }
   api: {
     events: {
       index: typeof routes['api.events.index']
       stats: typeof routes['api.events.stats']
-      showBySlug: typeof routes['api.events.showBySlug']
     }
   }
   events: {
